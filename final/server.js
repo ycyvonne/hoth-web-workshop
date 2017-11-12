@@ -3,6 +3,7 @@ const express = require('express');
 
 // Creates an instance of the HTTP server
 const app = express();
+app.use(express.static('public'));
 app.set('view engine', 'hbs');
 
 
@@ -15,10 +16,48 @@ app.set('view engine', 'hbs');
 // whereas https://github.com/acm-hackschool-f17/ has an
 // endpoint of /acm-hackschool-f17
 app.get('/', function (request, response) {
-  response.render('home', {
-    title: "Title from Server",
-    content: "This is a sentence sent from the server."
-  });
+
+	var images = [
+		{
+			source: 'https://github.com/acm-hackschool-f17/session-2-learn/blob/master/final/resources/1.jpg?raw=true'
+		},
+		{
+			source: 'https://github.com/acm-hackschool-f17/session-2-learn/blob/master/final/resources/2.jpg?raw=true'
+		},
+		{
+			source: 'https://github.com/acm-hackschool-f17/session-2-learn/blob/master/final/resources/3.jpg?raw=true'
+		},
+		{
+			source: 'https://github.com/acm-hackschool-f17/session-2-learn/blob/master/final/resources/4.jpg?raw=true'
+		},
+		{
+			source: 'https://github.com/acm-hackschool-f17/session-2-learn/blob/master/final/resources/5.jpg?raw=true'
+		},
+		{
+			source: 'https://github.com/acm-hackschool-f17/session-2-learn/blob/master/final/resources/6.jpg?raw=true'
+		},
+		{
+			source: 'https://github.com/acm-hackschool-f17/session-2-learn/blob/master/final/resources/7.jpg?raw=true'
+		},
+		{
+			source: 'https://github.com/acm-hackschool-f17/session-2-learn/blob/master/final/resources/8.jpg?raw=true'
+		},
+		{
+			source: 'https://github.com/acm-hackschool-f17/session-2-learn/blob/master/final/resources/9.jpg?raw=true'
+		},
+		{
+			source: 'https://github.com/acm-hackschool-f17/session-2-learn/blob/master/final/resources/10.jpg?raw=true'
+		},
+		{
+			source: 'https://github.com/acm-hackschool-f17/session-2-learn/blob/master/final/resources/11.jpg?raw=true'
+		},
+		{
+			source: 'https://github.com/acm-hackschool-f17/session-2-learn/blob/master/final/resources/12.jpg?raw=true'
+		}
+	];
+	response.render('home', {
+		images: images
+	});
 });
 
 app.get('/burrito', (req, res) => {
