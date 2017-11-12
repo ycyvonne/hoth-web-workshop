@@ -11,21 +11,24 @@ function handleImageClick(event) {
 	const info = $('.info-pane');
 	const preview = $('.preview-image');
 
-	// if (target.hasClass('selected')) {
-	// 	images.removeClass('not-selected');
-	// 	target.removeClass('selected');
-	// 	info.fadeOut(200);
-	// }
-	// else {
-	// 	images.removeClass('selected');
-	// 	images.addClass('not-selected');
+	if (target.hasClass('selected')) {
+		images.removeClass('not-selected');
+		target.removeClass('selected');
+		
+		// fade info box out
 
-	// 	target.addClass('selected');
-	// 	target.removeClass('not-selected');
+	}
+	else {
+		images.removeClass('selected');
+		images.addClass('not-selected');
 
-	// 	info.fadeIn(200);
-	// 	preview.css('background-image', target.css('background-image'));
-	// }
+		target.addClass('selected');
+		target.removeClass('not-selected');
+
+		// fade info box in
+
+		// update image source
+	}
 }
 
 $('document').ready(function() {
